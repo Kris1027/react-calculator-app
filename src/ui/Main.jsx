@@ -28,14 +28,16 @@ function Main() {
 
   return (
     <main className="flex flex-col gap-y-6">
-      <div className="flex h-20 items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold text-white">
+      <div className="flex h-20 flex-wrap items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold text-white">
         {state}
       </div>
       <div className="grid grid-cols-4 gap-4 rounded-lg bg-indigo-900 p-6 text-3xl font-bold">
         <Button onClick={() => handleButtonClick('7')}>7</Button>
         <Button onClick={() => handleButtonClick('8')}>8</Button>
         <Button onClick={() => handleButtonClick('9')}>9</Button>
-        <Button onClick={() => handleDelete()}>del</Button>
+        <Button className={'bg-gray-800'} onClick={() => handleDelete()}>
+          del
+        </Button>
         <Button onClick={() => handleButtonClick('4')}>4</Button>
         <Button onClick={() => handleButtonClick('5')}>5</Button>
         <Button onClick={() => handleButtonClick('6')}>6</Button>
