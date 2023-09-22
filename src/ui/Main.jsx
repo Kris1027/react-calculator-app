@@ -28,18 +28,26 @@ function Main() {
     switch (operation) {
       case '+':
         setResult(Number(firstNumber) + Number(secondNumber));
+        setFirstNumber(Number(firstNumber) + Number(secondNumber));
+        setSecondNumber('');
         setCurrentValue(Number(firstNumber) + Number(secondNumber));
         break;
       case '-':
         setResult(Number(firstNumber) - Number(secondNumber));
+        setFirstNumber(Number(firstNumber) - Number(secondNumber));
+        setSecondNumber('');
         setCurrentValue(Number(firstNumber) - Number(secondNumber));
         break;
       case '*':
         setResult(Number(firstNumber) * Number(secondNumber));
+        setFirstNumber(Number(firstNumber) * Number(secondNumber));
+        setSecondNumber('');
         setCurrentValue(Number(firstNumber) * Number(secondNumber));
         break;
       case '/':
         setResult(Number(firstNumber) / Number(secondNumber));
+        setFirstNumber(Number(firstNumber) / Number(secondNumber));
+        setSecondNumber('');
         setCurrentValue(Number(firstNumber) / Number(secondNumber));
         break;
     }
