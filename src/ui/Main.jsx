@@ -3,55 +3,80 @@ import BigButton from '../components/BigButton';
 import { useState } from 'react';
 
 function Main() {
-  const [state, setState] = useState('');
+  const [firstNumber, setFirstNumber] = useState('');
+  const [secondNumber, setSecondNumber] = useState('');
+  const [operation, setOperation] = useState('');
+  const [result, setResult] = useState('0');
+  const [currentValue, setCurrentValue] = useState(result);
 
-  function handleButtonClick(content) {
-    setState(state + content);
-  }
-
-  function handleDelete() {
-    if (state.length > 0) {
-      const newState = state.slice(0, -1);
-      setState(newState);
-    }
-  }
-
-  function handleEquals() {
-    const result = eval(state);
-
-    if (!isNaN(result)) {
-      setState(result.toString());
+  function handleSetNumbers(value) {
+    if (operation == '') {
+      setFirstNumber(firstNumber + value);
+      setCurrentValue(firstNumber + value);
     } else {
-      setState('Error');
+      setSecondNumber(secondNumber + value);
+      setCurrentValue(secondNumber + value);
     }
+  }
+
+  function handleSetOperations(value) {
+    setOperation(value);
+    setCurrentValue(value);
+  }
+
+  function perforOperation() {
+    switch (operation) {
+      case '+':
+        setResult(Number(firstNumber) + Number(secondNumber));
+        setCurrentValue(Number(firstNumber) + Number(secondNumber));
+        break;
+      case '-':
+        setResult(Number(firstNumber) - Number(secondNumber));
+        setCurrentValue(Number(firstNumber) - Number(secondNumber));
+        break;
+      case '*':
+        setResult(Number(firstNumber) * Number(secondNumber));
+        setCurrentValue(Number(firstNumber) * Number(secondNumber));
+        break;
+      case '/':
+        setResult(Number(firstNumber) / Number(secondNumber));
+        setCurrentValue(Number(firstNumber) / Number(secondNumber));
+        break;
+    }
+  }
+
+  function handleReset() {
+    setFirstNumber('');
+    setSecondNumber('');
+    setOperation('');
+    setResult('0');
+    setCurrentValue('0');
   }
 
   return (
     <main className="flex flex-col gap-y-6">
       <div className="flex h-20 flex-wrap items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold text-white">
-        {state}
+        {currentValue}
       </div>
       <div className="grid grid-cols-4 gap-4 rounded-lg bg-indigo-900 p-6 text-3xl font-bold">
-        <Button onClick={() => handleButtonClick('7')}>7</Button>
-        <Button onClick={() => handleButtonClick('8')}>8</Button>
-        <Button onClick={() => handleButtonClick('9')}>9</Button>
-        <Button className={'bg-gray-800'} onClick={() => handleDelete()}>
-          del
-        </Button>
-        <Button onClick={() => handleButtonClick('4')}>4</Button>
-        <Button onClick={() => handleButtonClick('5')}>5</Button>
-        <Button onClick={() => handleButtonClick('6')}>6</Button>
-        <Button onClick={() => handleButtonClick('+')}>+</Button>
-        <Button onClick={() => handleButtonClick('1')}>1</Button>
-        <Button onClick={() => handleButtonClick('2')}>2</Button>
-        <Button onClick={() => handleButtonClick('3')}>3</Button>
-        <Button onClick={() => handleButtonClick('-')}>-</Button>
-        <Button onClick={() => handleButtonClick('.')}>.</Button>
-        <Button onClick={() => handleButtonClick('0')}>0</Button>
-        <Button onClick={() => handleButtonClick('/')}>/</Button>
-        <Button onClick={() => handleButtonClick('*')}>x</Button>
-        <BigButton onClick={() => setState('')}>reset</BigButton>
-        <BigButton onClick={() => handleEquals()}>=</BigButton>
+        <Button onClick={() => handleSetNumbers(7)}>7</Button>
+        <Button onClick={() => handleSetNumbers(8)}>8</Button>
+        <Button onClick={() => handleSetNumbers(9)}>9</Button>
+        <Button>del</Button>
+        <Button onClick={() => handleSetNumbers(4)}>4</Button>
+        <Button onClick={() => handleSetNumbers(5)}>5</Button>
+        <Button onClick={() => handleSetNumbers(6)}>6</Button>
+        <Button onClick={() => handleSetOperations('+')}>+</Button>
+        <Button onClick={() => handleSetNumbers(1)}>1</Button>
+        <Button onClick={() => handleSetNumbers(2)}>2</Button>
+        <Button onClick={() => handleSetNumbers(3)}>3</Button>
+        <Button onClick={() => handleSetOperations('-')}>-</Button>
+        <Button>.</Button>
+        <Button onClick={() => handleSetNumbers(0)}>0</Button>
+        <Button onClick={() => handleSetOperations('/')}>/</Button>
+        <Button onClick={() => handleSetOperations('*')}>x</Button>
+        <BigButton onClick={handleReset}>reset</BigButton>
+        <BigButton onClick={perforOperation}>=</BigButton>
       </div>
     </main>
   );
