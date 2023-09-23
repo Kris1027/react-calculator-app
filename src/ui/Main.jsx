@@ -1,8 +1,10 @@
 import Button from '../components/Button';
-import BigButton from '../components/BigButton';
 import { useState } from 'react';
+import { useTheme } from '../contexts/themeContext';
 
 function Main() {
+  const { theme1, theme2, theme3 } = useTheme();
+
   const [firstNumber, setFirstNumber] = useState('');
   const [secondNumber, setSecondNumber] = useState('');
   const [operation, setOperation] = useState('');
@@ -73,14 +75,30 @@ function Main() {
 
   return (
     <main className="flex flex-col gap-y-6">
-      <div className="flex h-20 flex-wrap items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold text-white ">
+      <div
+        className={`flex h-20 flex-wrap items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold
+        ${theme2 && 'bg-slate-100'}
+        ${theme3 && ' bg-purple-900'}`}
+      >
         {currentValue}
       </div>
-      <div className="grid grid-cols-4 gap-4 rounded-lg bg-indigo-900 p-6 text-3xl font-bold">
+      <div
+        className={`grid grid-cols-4 gap-4 rounded-lg bg-indigo-900 p-6 text-3xl font-bold
+        ${theme2 && 'bg-gray-400'}
+        ${theme3 && 'bg-purple-900'}`}
+      >
         <Button onClick={() => handleSetNumbers(7)}>7</Button>
         <Button onClick={() => handleSetNumbers(8)}>8</Button>
         <Button onClick={() => handleSetNumbers(9)}>9</Button>
-        <Button onClick={handleDelete}>del</Button>
+        <button
+          onClick={handleDelete}
+          className={`text rounded-lg py-6 uppercase active:scale-95
+          ${theme1 && 'bg-indigo-400 text-white hover:bg-indigo-200'}
+          ${theme2 && ' bg-teal-600 text-white hover:bg-teal-500'}
+          ${theme3 && 'bg-purple-950 text-white hover:bg-purple-400'}`}
+        >
+          del
+        </button>
         <Button onClick={() => handleSetNumbers(4)}>4</Button>
         <Button onClick={() => handleSetNumbers(5)}>5</Button>
         <Button onClick={() => handleSetNumbers(6)}>6</Button>
@@ -93,8 +111,24 @@ function Main() {
         <Button onClick={() => handleSetNumbers(0)}>0</Button>
         <Button onClick={() => handleSetOperations('/')}>/</Button>
         <Button onClick={() => handleSetOperations('*')}>x</Button>
-        <BigButton onClick={handleReset}>reset</BigButton>
-        <BigButton onClick={perforOperation}>=</BigButton>
+        <button
+          onClick={handleReset}
+          className={`col-span-2 rounded-lg bg-indigo-300 py-6 uppercase text-white hover:bg-indigo-200 active:scale-95
+          ${theme1 && 'bg-indigo-400 text-white hover:bg-indigo-200'}
+          ${theme2 && ' bg-teal-600 text-white hover:bg-teal-500'}
+          ${theme3 && 'bg-purple-950 text-white hover:bg-purple-400'}`}
+        >
+          reset
+        </button>
+        <button
+          onClick={perforOperation}
+          className={`col-span-2 rounded-lg bg-indigo-300 py-6 uppercase text-white hover:bg-indigo-200 active:scale-95
+          ${theme1 && 'bg-red-600 text-white hover:bg-red-400'}
+          ${theme2 && ' bg-orange-500 text-white hover:bg-orange-400'}
+          ${theme3 && 'bg-teal-600 text-black hover:bg-teal-400'}`}
+        >
+          =
+        </button>
       </div>
     </main>
   );

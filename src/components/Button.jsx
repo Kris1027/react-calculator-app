@@ -1,8 +1,15 @@
+import { useTheme } from '../contexts/themeContext';
+
 function Button({ children, onClick }) {
+  const { theme1, theme2, theme3 } = useTheme();
+
   return (
     <button
       onClick={onClick}
-      className="rounded-lg bg-slate-300 py-6 uppercase text-indigo-950 hover:bg-slate-100 active:scale-95"
+      className={`rounded-lg py-6 uppercase active:scale-95
+      ${theme1 && 'bg-white text-indigo-900 hover:bg-slate-200'}
+      ${theme2 && 'bg-slate-100 text-black hover:bg-slate-200'}
+      ${theme3 && 'bg-purple-700 text-yellow-500 hover:bg-purple-500'}`}
     >
       {children}
     </button>
