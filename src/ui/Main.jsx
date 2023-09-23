@@ -89,7 +89,7 @@ function Main() {
         <Button onClick={() => handleSetNumbers(2)}>2</Button>
         <Button onClick={() => handleSetNumbers(3)}>3</Button>
         <Button onClick={() => handleSetOperations('-')}>-</Button>
-        <Button onClick={() => handleSetNumbers('.')}>.</Button>
+        <Button onClick={() => handleSetNumbers(`.`)}>.</Button>
         <Button onClick={() => handleSetNumbers(0)}>0</Button>
         <Button onClick={() => handleSetOperations('/')}>/</Button>
         <Button onClick={() => handleSetOperations('*')}>x</Button>
