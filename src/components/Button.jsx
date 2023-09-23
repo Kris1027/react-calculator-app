@@ -6,7 +6,7 @@ function Button({ children, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`rounded-lg py-6 uppercase active:scale-95
+      className={`rounded-lg py-6 uppercase transition-colors duration-500 active:scale-95
       ${theme1 && 'button-shadow-1 bg-white text-indigo-900 hover:bg-slate-200'}
       ${theme2 && 'button-shadow-2 bg-slate-100 text-black hover:bg-slate-200'}
       ${

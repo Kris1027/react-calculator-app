@@ -76,7 +76,7 @@ function Main() {
   return (
     <main className="flex flex-col gap-y-6">
       <div
-        className={`flex h-20 flex-wrap items-center justify-end rounded-lg px-4 text-5xl font-bold
+        className={`flex h-20 flex-wrap items-center justify-end rounded-lg px-4 text-5xl font-bold transition-colors duration-500
         ${theme1 && 'bg-indigo-900'}
         ${theme2 && 'bg-slate-100'}
         ${theme3 && ' bg-purple-900'}`}
@@ -84,7 +84,7 @@ function Main() {
         {currentValue}
       </div>
       <div
-        className={`grid grid-cols-4 gap-4 rounded-lg p-6 text-3xl font-bold
+        className={`grid grid-cols-4 gap-4 rounded-lg p-6 text-3xl font-bold transition-colors duration-500
         ${theme1 && 'bg-indigo-900'}
         ${theme2 && 'bg-gray-400'}
         ${theme3 && 'bg-purple-900'}`}
@@ -94,7 +94,7 @@ function Main() {
         <Button onClick={() => handleSetNumbers(9)}>9</Button>
         <button
           onClick={handleDelete}
-          className={`text rounded-lg py-6 uppercase active:scale-95
+          className={`text rounded-lg py-6 uppercase transition-colors duration-500 active:scale-95
           ${
             theme1 &&
             'delete-shadow-button-1 bg-indigo-400 text-white hover:bg-indigo-200'
@@ -124,7 +124,7 @@ function Main() {
         <Button onClick={() => handleSetOperations('*')}>x</Button>
         <button
           onClick={handleReset}
-          className={`col-span-2 rounded-lg py-6 uppercase active:scale-95
+          className={`col-span-2 rounded-lg py-6 uppercase transition-colors duration-500 active:scale-95
           ${
             theme1 &&
             'delete-shadow-button-1 bg-indigo-400 text-white hover:bg-indigo-200'
@@ -142,7 +142,7 @@ function Main() {
         </button>
         <button
           onClick={perforOperation}
-          className={`col-span-2 rounded-lg py-6 uppercase active:scale-95
+          className={`col-span-2 rounded-lg py-6 uppercase transition-colors duration-500 active:scale-95
           ${
             theme1 &&
             'equals-shadow-button-1 bg-red-600 text-white hover:bg-red-400'
