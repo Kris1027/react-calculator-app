@@ -13,13 +13,15 @@ function SwitchThemer() {
   return (
     <div
       className={`flex items-center gap-x-12 pt-2 font-bold
+      ${theme1 && 'text-white'}
       ${theme2 && 'text-black'}
       ${theme3 && ' text-yellow-500'}`}
     >
       <h2 className="uppercase">theme</h2>
       <div className="relative">
         <div
-          className={`relative my-2 h-6 w-24 rounded-xl bg-indigo-900 p-1
+          className={`relative my-2 h-6 w-24 rounded-xl p-1
+        ${theme1 && ' bg-indigo-900'}
         ${theme2 && ' bg-gray-400'}
         ${theme3 && ' bg-purple-900'}`}
         >

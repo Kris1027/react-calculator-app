@@ -76,14 +76,16 @@ function Main() {
   return (
     <main className="flex flex-col gap-y-6">
       <div
-        className={`flex h-20 flex-wrap items-center justify-end rounded-lg bg-indigo-900 px-4 text-5xl font-bold
+        className={`flex h-20 flex-wrap items-center justify-end rounded-lg px-4 text-5xl font-bold
+        ${theme1 && 'bg-indigo-900'}
         ${theme2 && 'bg-slate-100'}
         ${theme3 && ' bg-purple-900'}`}
       >
         {currentValue}
       </div>
       <div
-        className={`grid grid-cols-4 gap-4 rounded-lg bg-indigo-900 p-6 text-3xl font-bold
+        className={`grid grid-cols-4 gap-4 rounded-lg p-6 text-3xl font-bold
+        ${theme1 && 'bg-indigo-900'}
         ${theme2 && 'bg-gray-400'}
         ${theme3 && 'bg-purple-900'}`}
       >
