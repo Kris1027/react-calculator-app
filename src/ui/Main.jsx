@@ -95,9 +95,18 @@ function Main() {
         <button
           onClick={handleDelete}
           className={`text rounded-lg py-6 uppercase active:scale-95
-          ${theme1 && 'bg-indigo-400 text-white hover:bg-indigo-200'}
-          ${theme2 && ' bg-teal-600 text-white hover:bg-teal-500'}
-          ${theme3 && 'bg-purple-950 text-white hover:bg-purple-400'}`}
+          ${
+            theme1 &&
+            'delete-shadow-button-1 bg-indigo-400 text-white hover:bg-indigo-200'
+          }
+          ${
+            theme2 &&
+            'delete-shadow-button-2 bg-teal-600 text-white hover:bg-teal-500'
+          }
+          ${
+            theme3 &&
+            'delete-shadow-button-3 bg-purple-950 text-white hover:bg-purple-400'
+          }`}
         >
           del
         </button>
@@ -115,19 +124,37 @@ function Main() {
         <Button onClick={() => handleSetOperations('*')}>x</Button>
         <button
           onClick={handleReset}
-          className={`col-span-2 rounded-lg bg-indigo-300 py-6 uppercase text-white hover:bg-indigo-200 active:scale-95
-          ${theme1 && 'bg-indigo-400 text-white hover:bg-indigo-200'}
-          ${theme2 && ' bg-teal-600 text-white hover:bg-teal-500'}
-          ${theme3 && 'bg-purple-950 text-white hover:bg-purple-400'}`}
+          className={`col-span-2 rounded-lg py-6 uppercase active:scale-95
+          ${
+            theme1 &&
+            'delete-shadow-button-1 bg-indigo-400 text-white hover:bg-indigo-200'
+          }
+          ${
+            theme2 &&
+            'delete-shadow-button-2 bg-teal-600 text-white hover:bg-teal-500'
+          }
+          ${
+            theme3 &&
+            'delete-shadow-button-3 bg-purple-950 text-white hover:bg-purple-400'
+          }`}
         >
           reset
         </button>
         <button
           onClick={perforOperation}
-          className={`col-span-2 rounded-lg bg-indigo-300 py-6 uppercase text-white hover:bg-indigo-200 active:scale-95
-          ${theme1 && 'bg-red-600 text-white hover:bg-red-400'}
-          ${theme2 && ' bg-orange-500 text-white hover:bg-orange-400'}
-          ${theme3 && 'bg-teal-600 text-black hover:bg-teal-400'}`}
+          className={`col-span-2 rounded-lg py-6 uppercase active:scale-95
+          ${
+            theme1 &&
+            'equals-shadow-button-1 bg-red-600 text-white hover:bg-red-400'
+          }
+          ${
+            theme2 &&
+            'equals-shadow-button-2 bg-orange-500 text-white hover:bg-orange-400'
+          }
+          ${
+            theme3 &&
+            'equals-shadow-button-3 bg-teal-600 text-black hover:bg-teal-400'
+          }`}
         >
           =
         </button>

@@ -7,9 +7,12 @@ function Button({ children, onClick }) {
     <button
       onClick={onClick}
       className={`rounded-lg py-6 uppercase active:scale-95
-      ${theme1 && 'bg-white text-indigo-900 hover:bg-slate-200'}
-      ${theme2 && 'bg-slate-100 text-black hover:bg-slate-200'}
-      ${theme3 && 'bg-purple-700 text-yellow-500 hover:bg-purple-500'}`}
+      ${theme1 && 'button-shadow-1 bg-white text-indigo-900 hover:bg-slate-200'}
+      ${theme2 && 'button-shadow-2 bg-slate-100 text-black hover:bg-slate-200'}
+      ${
+        theme3 &&
+        'button-shadow-3 bg-purple-700 text-yellow-500 hover:bg-purple-500'
+      }`}
     >
       {children}
     </button>
